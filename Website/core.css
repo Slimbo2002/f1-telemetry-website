@@ -1,0 +1,10 @@
+section{
+    display: flex;
+    justify-content: center;
+    background-image: url('monacoFlag.jpg');
+    background-size: contain;
+}
+.heroHeadline{
+    font-size: 50px;
+    color: white;
+}
