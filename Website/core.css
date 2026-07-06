@@ -1,8 +1,6 @@
 body{
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;
-    margin-left: 50px;
-    margin-right: 50px;
 }
 header{
   display: grid;
@@ -42,4 +40,40 @@ header{
 .navbar li a.active{
     font-weight: 600;
     font-size: 20px;
+}
+.hero{
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.41), rgb(0, 0, 0) 93%), url("monacoFlag.jpg");
+    background-position: 0px 0px, 0px 0px;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.hero-text{
+    display: flex;
+    flex-direction: column;
+}
+.hero-sub-text{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.hero-text h1{
+    font-size: 80px;
+    margin: 0;
+    color: white;
+    font-style: italic;
+}
+.hero-text h2{
+    font-size:16px;
+    color: #dfdfdf;
+    font-weight: 400;
+}
+.hero-sub-text .track{
+    padding-right: 10px;
+    border-right: solid 1px #c5c5c5;
+}
+.hero-sub-text .date{
+    padding-left: 0;
 }

@@ -1,0 +1,59 @@
+@import url('core.css');
+
+.info-one{
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: #c5c5c5;
+    background-color: #202020;
+}
+.lap-counter-live{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+    gap:100px;
+}
+.lap-counter-live h1{
+    color: white;
+    font-weight: 400;
+    font-size: 30px;
+    padding-left: 10px;
+}
+.lap-counter-live .live{
+    color: red;
+    font-size: 20px;
+}
+.info-one{
+    box-sizing: border-box;
+    padding: 20px 24px;
+    margin: 50px;
+}
+.timing-tower{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.timing-row{
+    display: grid;
+    grid-template-columns:40px 1fr auto;
+    color: white;
+    font-size: 22px;
+    width: 100%;
+    padding: 5px;
+    border-bottom: solid 1px #c5c5c5;
+}
+.live-button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 0, 0);
+    border-radius: 10px;
+    background-color: rgba(255, 0, 0, 0);
+    color: rgb(255, 0, 0);
+    width: 50%;
+}
