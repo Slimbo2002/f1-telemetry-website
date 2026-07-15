@@ -78,12 +78,6 @@
     border-bottom: solid 1px #c5c5c5;
 }
 .live-button{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
     border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 0, 0);
@@ -91,6 +85,13 @@
     background-color: rgba(255, 0, 0, 0);
     color: rgb(255, 0, 0);
     width: 50%;
+}
+.live-button:hover{
+    background-color: red;
+    color: white;
+    border: white;
+    border-style: solid;
+    border-width: 1px;
     text-decoration: none;
 }
 .info-blocks{
@@ -138,17 +139,93 @@
     padding: 5px;
     border-bottom: solid 1px #c5c5c5;
 }
+.calendar-overview{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #202020;
+    padding-bottom: 20px;
+}
+.calendar-overview h1{
+    color: white;
+    text-align: center; 
+    padding-bottom: 20px;
+}
 .calendar-overview ul{
     display: flex;
     flex-direction: row;
     list-style-type: none;
+    justify-content: center;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
 }
-.calendar-overview li{
+.calendar-card{
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: #c5c5c5;
+    background-color: #202020;
+    padding: 20px 50px;
+    gap: 10px;
 }
-.calendar-card-flag{
+.calendar-card h1{
+    color: white;
+    font-size: 20px;
+    margin: 0;
+}
+.calendar-card h2{
+    color: #dfdfdf;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+}
+.calendar-card .calendar-card-flag{
     height: 100px;
     width: 100px;
+}
+.calendar-card button{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    background-color: rgba(255, 0, 0, 0);
+}
+.calendar-card .past-race{
+    color: white;
+    border-color: white;
+}
+.calendar-card .live-race{
+    color: red;
+    border-color: red;
+}
+.calendar-card .future-race{
+    color: #a1a1a1;
+    border-color: #a1a1a1;
+}
+.calendar-carosel{
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    --visible-count: 5;
+    --card-gap: 50px;
+}
+#carosel-track{
+    justify-content: flex-start;
+}
+.carosel-button{
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
+    margin: 20px;
+    height: 75px;
+    width: 75px;
+    color: white;
+}
+.carosel-viewport{
+    overflow: hidden;
+    width: 100%;
 }
