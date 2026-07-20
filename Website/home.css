@@ -1,6 +1,6 @@
 @import url('core.css');
 .hero{
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.41), rgb(0, 0, 0) 93%), url("monacoFlag.jpg");
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.41), rgb(0, 0, 0) 93%);
     background-position: 0px 0px, 0px 0px;
     background-size: contain;
     display: flex;
@@ -151,12 +151,10 @@
     text-align: center; 
     padding-bottom: 20px;
 }
-.calendar-overview ul{
+.calendar-overview ul {
     display: flex;
     flex-direction: row;
-    list-style-type: none;
-    justify-content: center;
-    gap: 50px;
+    list-style: none;
     margin: 0;
     padding: 0;
 }
@@ -185,7 +183,7 @@
 }
 .calendar-card .calendar-card-flag{
     height: 100px;
-    width: 100px;
+    width: 125px;
 }
 .calendar-card button{
     border-style: solid;
@@ -206,26 +204,35 @@
     border-color: #a1a1a1;
 }
 .calendar-carosel{
-    overflow: hidden;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    --visible-count: 5;
-    --card-gap: 50px;
-}
-#carosel-track{
-    justify-content: flex-start;
-}
-.carosel-button{
-    position: relative;
-    z-index: 10;
-    flex-shrink: 0;
-    margin: 20px;
-    height: 75px;
-    width: 75px;
-    color: white;
+    position:relative;
+    width: 80%;
+    margin: 0 auto;
 }
 .carosel-viewport{
-    overflow: hidden;
-    width: 100%;
+    padding:10px;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.carosel-track{
+    display:flex;
+    justify-content:flex-start;
+    gap:50px;
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+.carosel-button{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    color:white
+}
+.carosel-button--left{
+    left:-40px;
+}
+.carosel-button--right{
+    right:-40px;
 }

@@ -70,61 +70,11 @@
                     </a>
                 </div>
                 <div class = "standings">
-                    <div class = "standing-table">
+                    <div class = "standing-table" id = "drivers_standings">
                         <h1 class = "standing-title">Driver Standings</h1>
-                        <div class = "standings-row">
-                            <span class = "pos">1</span>
-                            <span class = "driver">L Hamilton</span>
-                            <span class = "points">153</span>
-                        </div>    
-                        <div class = "standings-row">
-                            <span class = "pos">2</span>
-                            <span class = "driver">M Verstappen</span>
-                            <span class = "points">150</span>
-                        </div>       
-                        <div class = "standings-row">
-                            <span class = "pos">3</span>
-                            <span class = "driver">L Norris</span>
-                            <span class = "points">133</span>
-                        </div>       
-                        <div class = "standings-row">
-                            <span class = "pos">4</span>
-                            <span class = "driver">O Piastri</span>
-                            <span class = "points">110</span>
-                        </div>       
-                        <div class = "standings-row">
-                            <span class = "pos">5</span>
-                            <span class = "driver">F Alonso</span>
-                            <span class = "points">98</span>
-                        </div>           
                     </div>
-                    <div class ="standing-table">
+                    <div class ="standing-table" id = "constructors_standings">
                         <h1 class = "standing-title">Constructors Standings</h1>
-                        <div class = "standings-row">
-                            <span class = "pos">1</span>
-                            <span class = "team">Mclaren</span>
-                            <span class = "points">153</span>
-                        </div>
-                        <div class = "standings-row">
-                            <span class = "pos">2</span>
-                            <span class = "team">Aston Martin</span>
-                            <span class = "points">150</span>
-                        </div>
-                        <div class = "standings-row">
-                            <span class = "pos">3</span>
-                            <span class = "team">Cadillac</span>
-                            <span class = "points">136</span>
-                        </div>
-                        <div class = "standings-row">
-                            <span class = "pos">4</span>
-                            <span class = "team">Ferrari</span>
-                            <span class = "points">122</span>
-                        </div>
-                        <div class = "standings-row">
-                            <span class = "pos">5</span>
-                            <span class = "team">Mercedes</span>
-                            <span class = "points">109</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -132,88 +82,15 @@
        <section class = "calendar-overview">
             <h1>2026 Season Calendar</h1>
             <div class = "calendar-carosel">
-                <button class ="carosel-button" onclick="incrementCarosel(-1)">&lt;</button>
+                <button class ="carosel-button carosel-button--left">&lt;</button>
                 <div class = "carosel-viewport">
-                    <ul id ="carosel-track">
-                        <li class = "calendar-card">
-                            <h1>Australia</h1>
-                            <img class = "calendar-card-flag" src = "monacoFlag.jpg">
-                            <h2>21-23 March</h2>
-                            <a href = "">
-                                <button class = "past-race">Results</button>
-                            </a>
-                        </li>
-                        <li class = "calendar-card">
-                            <h1>Monaco</h1>
-                            <img class = "calendar-card-flag" src = "monacoFlag.jpg">
-                            <h2>21-23 March</h2>
-                            <button class = "live-race">LIVE</button>
-                        </li>
-                        <li class = "calendar-card">
-                            <h1>Bahrain</h1>
-                            <img class = "calendar-card-flag" src = "monacoFlag.jpg">
-                            <h2>21-23 March</h2>
-                            <button class = "future-race">Upcoming</button>
-                        </li>
-                        <li class = "calendar-card">
-                            <h1>Saudi Arabia</h1>
-                            <img class = "calendar-card-flag" src = "monacoFlag.jpg">
-                            <h2>21-23 March</h2>
-                            <button class = "future-race">Upcoming</button>
-                        </li>
-                        <li class = "calendar-card">
-                            <h1>Saudi Arabia</h1>
-                            <img class = "calendar-card-flag" src = "monacoFlag.jpg">
-                            <h2>21-23 March</h2>
-                            <button class = "future-race">Upcoming</button>
-                        </li>
-                        <li class = "calendar-card">
-                            <h1>Saudi Arabia</h1>
-                            <img class = "calendar-card-flag" src = "monacoFlag.jpg">
-                            <h2>21-23 March</h2>
-                            <button class = "future-race">Upcoming</button>
-                        </li>
-                        <li class = "calendar-card">
-                            <h1>Saudi Arabia</h1>
-                            <img class = "calendar-card-flag" src = "monacoFlag.jpg">
-                            <h2>21-23 March</h2>
-                            <button class = "future-race">Upcoming</button>
-                        </li>
-                        <li class = "calendar-card">
-                            <h1>Saudi Arabia</h1>
-                            <img class = "calendar-card-flag" src = "monacoFlag.jpg">
-                            <h2>21-23 March</h2>
-                            <button class = "future-race">Upcoming</button>
-                        </li>
-                        <li class = "calendar-card">
-                            <h1>Saudi Arabia</h1>
-                            <img class = "calendar-card-flag" src = "monacoFlag.jpg">
-                            <h2>21-23 March</h2>
-                            <button class = "future-race">Upcoming</button>
-                        </li>
-                        <li class = "calendar-card">
-                            <h1>Saudi Arabia</h1>
-                            <img class = "calendar-card-flag" src = "monacoFlag.jpg">
-                            <h2>21-23 March</h2>
-                            <button class = "future-race">Upcoming</button>
-                        </li>
-                        <li class = "calendar-card">
-                            <h1>Saudi Arabia</h1>
-                            <img class = "calendar-card-flag" src = "monacoFlag.jpg">
-                            <h2>21-23 March</h2>
-                            <button class = "future-race">Upcoming</button>
-                        </li>
-                        <li class = "calendar-card">
-                            <h1>Saudi Arabia</h1>
-                            <img class = "calendar-card-flag" src = "monacoFlag.jpg">
-                            <h2>21-23 March</h2>
-                            <button class = "future-race">Upcoming</button>
-                        </li>
+                    <ul id ="carosel-track" class="carosel-track">
                     </ul>
                 </div>
-                <button class ="carosel-button" onclick="incrementCarosel(1)">&gt;</button>
+                <button class ="carosel-button carosel-button--right">&gt;</button>
             </div>
        </section>
+        <script type = "module"src="historical_data.js"></script>
+        <script type = "module" src = "home.js"></script>
     </body>
 </html>
-<script src = "home.js"></script>
