@@ -2,7 +2,7 @@
 .hero{
     background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.41), rgb(0, 0, 0) 93%);
     background-position: 0px 0px, 0px 0px;
-    background-size: contain;
+    background-size:contain;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -36,7 +36,15 @@
 .hero-sub-text .date{
     padding-left: 0;
 }
-.info-one{
+.info-blocks{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+}
+.live-top-5{
+    display: none;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
@@ -94,11 +102,51 @@
     border-width: 1px;
     text-decoration: none;
 }
-.info-blocks{
+.last-winner{
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: #c5c5c5;
+    background-color: #202020;
+    box-sizing: border-box;
+    padding: 20px 24px;
+    margin: 50px;
+    width: 100%;
+}
+.winner-card{
     display: flex;
-    flex-direction: row;
-    padding: 0;
+    flex-direction: column;
+    align-items: center;
+}
+.winner-card h2{
+    color: white;
+    font-size: 30px;
     margin: 0;
+}
+.winner-card h3{
+    color: white;
+    font-size: 25px;
+    margin: 0;
+}
+.winner-card h4{
+    color: white;
+    font-size: 20px;
+    margin: 0;
+}
+.winner-card .driver-headshot{
+    width: 250px;
+    height: 250px;
+}
+.winner-text{
+    background-color: #202020;
+    text-align: center;
+    align-self: stretch;
+    padding: 10px;
+    margin-left: -24px;
+    margin-right: -24px;
+    margin-bottom: -20px;
+    border-top: 2px solid #c5c5c5;
+    border-radius: 10px;
 }
 .standings{
     display: flex;
@@ -112,7 +160,7 @@
     padding: 20px 24px;
     margin: 50px;
     width: 100%;
-    gap: 30px;
+    gap: 20px;
 }
 .standing-title{
     color: white;
@@ -133,7 +181,7 @@
 .standings-row{
     display: grid;
     grid-template-columns:40px 1fr auto;
-    color: rgb(255, 255, 255);
+    color: white;
     font-size: 22px;
     width: 100%;
     padding: 5px;
@@ -145,6 +193,10 @@
     justify-content: center;
     background-color: #202020;
     padding-bottom: 20px;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-width: 2px;
+    border-color: white;
 }
 .calendar-overview h1{
     color: white;

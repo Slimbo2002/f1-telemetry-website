@@ -25,15 +25,15 @@
 
        <section class = "hero">
             <div class = "hero-text">
-                <h1>Monaco Grand Prix</h1>
+                <h1 id = "race-name"></h1>
                 <div class ="hero-sub-text">
-                    <h2 class = "track">Circuit de Monaco</h2> 
-                    <h2 class = "date"> 2-5th June 2026</h2>
+                    <h2 class = "track" id="race-location">Circuit de Monaco</h2> 
+                    <h2 class = "date" id = "race-date"> 2-5th June 2026</h2>
                 </div>
             </div>
 
             <div class = "info-blocks">
-                <div class = "info-one">
+                <div class = "live-top-5"> 
                     <div class ="lap-counter-live">
                         <h1 class ="live">LIVE</h1>
                         <h1>Lap 5/78</h1>
@@ -69,6 +69,8 @@
                         <button class ="live-button">Watch Now</button>
                     </a>
                 </div>
+                <div class = "last-winner" id = "last-winner">
+                </div>
                 <div class = "standings">
                     <div class = "standing-table" id = "drivers_standings">
                         <h1 class = "standing-title">Driver Standings</h1>
@@ -90,7 +92,6 @@
                 <button class ="carosel-button carosel-button--right">&gt;</button>
             </div>
        </section>
-        <script type = "module"src="historical_data.js"></script>
         <script type = "module" src = "home.js"></script>
     </body>
 </html>
