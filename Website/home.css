@@ -1,41 +1,4 @@
 @import url('core.css');
-.hero{
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.41), rgb(0, 0, 0) 93%);
-    background-position: 0px 0px, 0px 0px;
-    background-size:contain;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-.hero-text{
-    display: flex;
-    flex-direction: column;
-}
-.hero-sub-text{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-}
-.hero-text h1{
-    font-size: 80px;
-    margin: 0;
-    color: white;
-    font-style: italic;
-}
-.hero-text h2{
-    font-size:16px;
-    color: #dfdfdf;
-    font-weight: 400;
-}
-.hero-sub-text .track{
-    padding-right: 10px;
-    border-right: solid 1px #c5c5c5;
-}
-.hero-sub-text .date{
-    padding-left: 0;
-}
 .info-blocks{
     display: flex;
     flex-direction: row;
@@ -235,7 +198,7 @@
 }
 .calendar-card .calendar-card-flag{
     height: 100px;
-    width: 125px;
+    width: 150px;
 }
 .calendar-card button{
     border-style: solid;

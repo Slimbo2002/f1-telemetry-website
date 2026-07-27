@@ -9,34 +9,30 @@ const prevBtn = document.querySelector('.carosel-button--left');
 const drivers_standings = document.querySelector('#drivers_standings');
 const constructors_standings = document.querySelector('#constructors_standings');
 const race_title = document.querySelector('#race-name');
-const race_location = document.querySelector('#race-location')
+const race_location = document.querySelector('#race-location');
 const race_date = document.querySelector('#race-date');
-const last_winner = document.querySelector('#last-winner')
-
-const alpha3to2 = {
-  AZE: "az", GBR: "gb", USA: "us", BRN: "bh", KSA: "sa",
-  AUS: "au", JPN: "jp", CHN: "cn", ITA: "it", MON: "mc",
-  ESP: "es", CAN: "ca", AUT: "at", HUN: "hu", BEL: "be",
-  NED: "nl", SGP: "sg", MEX: "mx", BRA: "br", QAT: "qa",
-  UAE: "ae"
-};
+const last_winner = document.querySelector('#last-winner');
+const dropdown = document.querySelector('#calendar-dropdown');
+const year_title = document.querySelector('#year-title');
 
 let slides = [];
 let currentIndex = 0;
 
 async function init() {
+    const latestRaceKey = await getLatestRaceSessionKey("2026");
     const latestSession = await getSession({ session_key: "latest" });
+    const latestMeeting = await getMeeting({meeting_key: "latest"});
 
+    await fillDropdownYears();
     await populateCalendar();
     zeroCalendar();
 
-    const latestRaceKey = await getLatestRaceSessionKey("2026");
     await populateDriversStandings(latestRaceKey);
     await populateConstructorsStandings(latestRaceKey);
     await populateLastWinner(latestRaceKey)
 
-    setHeroFlag(latestSession);
-    setRaceName(latestSession);
+    setHeroFlag(latestMeeting);
+    setRaceName(latestMeeting);
 }
 
 
@@ -79,10 +75,14 @@ function setWinnerGradient(driver){
 }
 
 async function populateCalendar() {
-    const data = await getMeeting({ year : "2026"});
-    const trimmed = data.slice(2);
+    slides = [];
+    track.innerHTML = "";
+    const year = getYear();
+    year_title.innerHTML = `<h1>${year} Season Calendar</h1>`
 
-    trimmed.forEach(event => {
+    const data = await getMeeting({ year : year});
+
+    data.forEach(event => {
         const start = new Date(event.date_start).toLocaleDateString("en-GB", { day: "numeric"});
         const end = new Date(event.date_end).toLocaleDateString("en-GB", { day: "numeric"});
         const month = new Date(event.date_start).toLocaleDateString("en-GB", {month: "long"})
@@ -90,7 +90,7 @@ async function populateCalendar() {
         track.insertAdjacentHTML("beforeend", `
             <li class="calendar-card">
                 <h1>${event.location}</h1>
-                <img class="calendar-card-flag" src="https://flagcdn.com/w2560/${alpha3to2[event.country_code]}.png"alt="">
+                <img class="calendar-card-flag" src="${event.country_flag}"alt="">
                 <h2>${start} - ${end} ${month}</h2>
                 <a href="">
                     <button class="past-race">Results</button>
@@ -101,6 +101,23 @@ async function populateCalendar() {
 
     slides = Array.from(track.children);
 }
+
+async function fillDropdownYears(){
+    const data = await getMeeting({});
+    const years = data.map(meeting => meeting.year);
+    const uniqueYears = [...new Set(years)].sort((a, b) => b - a);
+
+    uniqueYears.forEach(year=> {
+        var opt = document.createElement('option')
+        opt.value = year;
+        opt.innerHTML = year;
+        dropdown.appendChild(opt);
+    });
+}
+function getYear(){
+    return dropdown.value;
+}
+
 
 async function populateDriversStandings(sessionKey){
     const data = await getDriversStandings({session_key: sessionKey});
@@ -141,16 +158,17 @@ async function populateConstructorsStandings(sessionKey){
 }
 
 function setHeroFlag(data) {
-    const countryCode = alpha3to2[data[0].country_code];
     document.querySelector(".hero").style.backgroundImage =
-        `linear-gradient(90deg, rgba(0, 0, 0, 0.41), rgb(0, 0, 0) 93%), url("https://flagcdn.com/w2560/${countryCode}.png")`;
+        `linear-gradient(90deg, rgba(0, 0, 0, 0.41), rgb(0, 0, 0) 93%), url("${data[0].country_flag}")`;
 }
 
 function setRaceName(data) {
-    race_title.innerHTML = `${data[0].country_name} Grand Prix`;
+    race_title.innerHTML = `${data[0].meeting_name}`;
     race_location.innerHTML = `${data[0].circuit_short_name}`;
-    const start = new Date(data[0].date_start).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric"});
-    race_date.innerHTML = `${start}`;
+    const start = new Date(data[0].date_start).toLocaleDateString("en-GB", { day: "numeric"});
+    const end = new Date(data[0].date_end).toLocaleDateString("en-GB", { day: "numeric"});
+    const month = new Date(data[0].date_start).toLocaleDateString("en-GB", {month: "long"});
+    race_date.innerHTML = `${start} - ${end} ${month}`;
 }
 
 nextBtn.addEventListener("click", () => {
@@ -167,6 +185,11 @@ prevBtn.addEventListener("click", () => {
     currentIndex--;
     const slideWidth = slides[0].offsetWidth + parseFloat(getComputedStyle(track).gap);
     viewport.scrollTo({ left: slideWidth * currentIndex, behavior: "smooth" });
+});
+dropdown.addEventListener("change", async () => {
+    currentIndex = 0;
+    await populateCalendar();
+    zeroCalendar();
 });
 
 
