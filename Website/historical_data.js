@@ -28,7 +28,7 @@ export const getDriversStandings = (params) => getOpenF1("championship_drivers",
 export const getConstructorsStandings = (params) => getOpenF1("championship_teams", params);
 export const getDriver = (params) =>getOpenF1("drivers",params);
 export const getPosition = (params) =>getOpenF1("position",params);
-export const getSessionResult = (params) => getOpenF1("session_result", params)
+export const getSessionResult = (params) => getOpenF1("session_result", params);
 
 export async function getLatestRaceSessionKey(year) {
     const sessions = await getOpenF1("sessions", { session_name: "Race", year });

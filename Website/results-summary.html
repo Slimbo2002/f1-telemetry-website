@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title class = "page-title"></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="results-summary.css">
+    </head>
+    <body>
+        <header>
+            <div class = "logo-combo">
+                <img class="logo" src = "F1-Logo.png" alt ="logo-img">
+                <h1>Telemetry</h1>
+            </div>
+            <div class = "navbar">
+                <ul>
+                    <li><a class = "active" href = "home.html">Home</a></li>
+                    <li><a href = "">Seasons</a></li>
+                    <li><a href = "">Standings</a></li>
+                </ul>
+            </div>
+       </header>
+       <section class = "hero">
+            <div class = "hero-text">
+                <h1 id = "race-name"></h1>
+                <div class ="hero-sub-text">
+                    <h2 class = "track" id="race-location"></h2> 
+                    <h2 class = "date" id = "race-date"></h2>
+                </div>
+            </div>
+            <img class ="circuit-map" id = "circuit-map" height = "400" width = "500"></img>
+
+            <!-- <div class = "race-info">
+                <div class = "race-laps">
+                    <h2>Laps</h2>
+                    <h3 id = "race-laps">58</h3>
+                </div>
+                <div class = "circuit-length">
+                    <h2>Circuit Length</h2>
+                    <h3 id = "circuit-length">5.278Km</h3>
+                </div>
+                <div class = "lap-record">
+                    <h2>Lap Record</h2>
+                    <h3 id = "lap-record-time">1:15.054</h3>
+                    <h3 id = "lap-record-driver">Lando Norris (2025)</h3>
+                </div>
+            </div> -->
+       </section>
+       <section class = "session-overview" id="session-overview">
+       </section>
+        <script type = "module" src="results-summary.js"></script>
+    </body>
+</html>

@@ -1,0 +1,119 @@
+@import url('core.css');
+
+.race-info{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    gap: 50px;
+    justify-content: center;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: #c5c5c5;
+    background-color: #202020;
+    text-align: center;
+    padding: 30px;
+    margin: 50px;
+}
+.race-laps{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.race-laps h2{
+    font-size: 30px;
+    margin: 0;
+}
+.race-laps h3{
+    font-size: 25px;
+    margin: 5px;
+}
+.circuit-map{
+    filter: brightness(0) invert(1);
+}
+.circuit-length{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.circuit-length h2{
+    font-size: 30px;
+    margin: 0;
+}
+.circuit-length h3{
+    font-size: 25px;
+    margin: 10px;
+}
+.lap-record{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.lap-record h2{
+    font-size: 30px;
+    margin: 0;
+}
+.lap-record h3{
+    font-size: 25px;
+    margin: 5px;
+}
+.session-overview{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 20px;
+    background-color: #202020;
+    border-top: 2px solid #c5c5c5;
+}
+.session-title h2{
+    font-size: 40px;
+    margin: 10px;
+}
+.session-title h3{
+    font-size: 30px;
+    margin: 10px;
+    font-weight: 400;
+}
+.session-card{
+    flex: 1 1 400px;   /* Grow, shrink, basis */
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: #c5c5c5;
+    padding: 20px;
+    gap: 10px;
+}
+.fastest-lap{
+    color: #9F5EA5;
+}
+.session-result {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    width: 100%;
+    border-top: solid #202020;
+}
+.session-row {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) auto;
+    column-gap: 12px;
+    width: 100%;
+    text-align: left;
+}
+.session-row span{
+    font-size: 25px;
+}
+.driver {
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.gap {
+    justify-self: end;
+}

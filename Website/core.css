@@ -26,6 +26,10 @@ button{
     text-decoration: none;
     cursor: pointer;
     border-radius: 10px;
+    border-width: 2px;
+    border-color: white;
+    color: white;
+    font-weight: 400;
 }
 /* Aligns logo in the top left of the screen */
 .logo-combo{
@@ -62,12 +66,14 @@ button{
 .hero{
     background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.41), rgb(0, 0, 0) 93%);
     background-position: 0px 0px, 0px 0px;
-    background-size:contain;
+    background-size:cover;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    gap: 50px;
+
 }
 .hero-text{
     display: flex;

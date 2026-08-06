@@ -143,7 +143,7 @@
 }
 .standings-row{
     display: grid;
-    grid-template-columns:40px 1fr auto;
+    grid-template-columns:40px 1.5fr auto;
     color: white;
     font-size: 22px;
     width: 100%;
@@ -177,6 +177,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: stretch;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
@@ -250,4 +251,17 @@
 }
 .carosel-button--right{
     right:-40px;
+}
+.calendar-dropdown{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(255, 0, 0, 0);
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 10px;
+    color: white;
 }
