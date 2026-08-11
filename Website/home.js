@@ -1,4 +1,4 @@
-import { getSession, getDriversStandings, getConstructorsStandings, getDriver, getLatestRaceSessionKey, getMeeting, getPosition, getSessionResult} from "./historical_data.js";
+import { getTeamLogo, getSession, getDriversStandings, getConstructorsStandings, getDriver, getLatestRaceSessionKey, getMeeting, getPosition, getSessionResult} from "./historical_data.js";
 
 //Celndar Carousel to display the races
 const track = document.querySelector('#carosel-track');
@@ -19,6 +19,7 @@ let slides = [];
 let currentIndex = 0;
 let cachedCalendarData = [];
 
+
 async function init() {
     const [latestSession, latestMeeting, latestRaceKey] = await Promise.all([
         getSession({ session_key: "latest" }), 
@@ -30,7 +31,7 @@ async function init() {
         cacheCalendar(), 
         populateDriversStandings(latestRaceKey),
         populateConstructorsStandings(latestRaceKey), 
-        populateLastWinner(latestRaceKey)
+        populateLastWinner(latestRaceKey, latestMeeting[0].meeting_name)
     ]);
 
     zeroCalendar();
@@ -58,7 +59,7 @@ function setRaceName(meeting) {
     race_date.innerHTML = `${start} - ${end} ${month}`;
 }
 
-async function populateLastWinner(lastRace){
+async function populateLastWinner(lastRace, raceName){
     const results = await getSessionResult({session_key: lastRace, position: "1"});
     const winner = results[0]
     const drivers = await getDriver({session_key: lastRace});
@@ -70,11 +71,14 @@ async function populateLastWinner(lastRace){
     last_winner.insertAdjacentHTML("beforeend",`
         <div class = "winner-card">
             <h2>Race Winner</h2>
-            <h3>${country} GP</h3>
+            <h3>${raceName}</h3>
             <img class = "driver-headshot" src = "${bigHeadshot}"></img>
             <div class = "winner-text">
                 <h3>${driver.full_name}</h3>
-                <h4>${driver.team_name}</h4>
+                <div class = "team">
+                    <h4>${driver.team_name}</h4>
+                    <img class = "team-logo" width = "30" height = "30" src = "${getTeamLogo(driver.team_name)}"></img>
+                </div>
             </div>
         </div>
         `)
@@ -135,7 +139,6 @@ function populateCalendar(calendar) {
     document.querySelectorAll(".results-button").forEach(btn=>{
         btn.addEventListener("click", (e) =>{
             const key = e.currentTarget.value;
-            console.log(key)
             window.location.href = `results-summary.html?meeting=${key}`
         });
     });
@@ -188,11 +191,11 @@ function getYear(){
 }
 
 async function populateDriversStandings(sessionKey){
-    const [data, drivers] = await Promise.all([getDriversStandings({session_key: sessionKey}), getDriver({session_key: "latest"})])
+    const [data, drivers] = await Promise.all([getDriversStandings({session_key: sessionKey}), getDriver({session_key: sessionKey})])
     for (const driver of data.slice(0,5)) {
         const driver_name = formatDriverName(drivers, driver.driver_number);
         drivers_standings.insertAdjacentHTML("beforeend", `
-            <div class="standings-row">
+            <div class="standings-row-driver">
                 <span class="pos">${driver.position_current}</span>
                 <span class="driver">${driver_name}</span>
                 <span class="points">${driver.points_current}</span>
@@ -215,8 +218,9 @@ async function populateConstructorsStandings(sessionKey){
 
     data.slice(0,5).forEach(team => {
         constructors_standings.insertAdjacentHTML("beforeend", `
-            <div class = "standings-row">
+            <div class = "standings-row-team">
                 <span class = "pos">${team.position_current}</span>
+                <img class = "team-logo" src = "${getTeamLogo(team.team_name)}">
                 <span class = "team">${team.team_name}</span>
                 <span class = "points">${team.points_current}</span>
             </div>  

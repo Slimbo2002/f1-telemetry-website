@@ -8,6 +8,8 @@ export async function getOpenF1(endpoint, params = {}, retries = 3) {
         const response = await fetch(url);
         if (response.ok) return response.json();
 
+        if (response.status === 404) return [];
+
         if (response.status === 429 && attempt < retries) {
             const retryAfter = Number(response.headers.get("Retry-After")) || (attempt + 1) * 2;
             await new Promise(res => setTimeout(res, retryAfter * 1000));
@@ -16,9 +18,10 @@ export async function getOpenF1(endpoint, params = {}, retries = 3) {
 
         throw new Error(`OpenF1 request failed: ${response.status}`);
     }
+
+    throw new Error(`OpenF1 request failed: max retries exceeded for ${endpoint}`);
 }
 
-// thin, named wrappers for the calls you actually use
 export const getLaps = (params) => getOpenF1("laps", params);
 export const getCarData = (params) => getOpenF1("car_data", params);
 export const getWeather = (params) => getOpenF1("weather", params);
@@ -36,4 +39,21 @@ export async function getLatestRaceSessionKey(year) {
     const pastRaces = sessions.filter(s => new Date(s.date_start) <= now);
     const latestRace = pastRaces.sort((a, b) => new Date(b.date_start) - new Date(a.date_start))[0];
     return latestRace ? latestRace.session_key : null;
+}
+
+const teamLogo = {
+    "Mercedes":"/TeamLogos/mercedes.png",
+    "Red Bull Racing":"/TeamLogos/redbull.png",
+    "McLaren":"/TeamLogos/mclaren.png",
+    "Ferrari":"/TeamLogos/ferrari.png",
+    "Racing Bulls":"/TeamLogos/rb.png",
+    "Alpine": "/TeamLogos/alpine.png",
+    "Audi":"/TeamLogos/audi.png",
+    "Haas F1 Team":"/TeamLogos/haas.png",
+    "Williams":"/TeamLogos/williams.png",
+    "Aston Martin":"/TeamLogos/aston-martin.png",
+    "Cadillac":"/TeamLogos/cadillac.png"
+};
+export function getTeamLogo(teamName){
+    return teamLogo[teamName];
 }

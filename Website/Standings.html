@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="standings.css">
+    </head>
+    <body>
+        <header>
+            <div class = "logo-combo">
+                <img class="logo" src = "F1-Logo.png" alt ="logo-img">
+                <h1>Telemetry</h1>
+            </div>
+            <div class = "navbar">
+                <ul>
+                    <li><a href = "home.html">Home</a></li>
+                    <li><a class = "active" href = "Standings.html">Standings</a></li>
+                </ul>
+            </div>
+       </header>
+
+       <section class = "hero">
+            <h1 id ="year">2026 Standings</h1>
+       </section>
+
+       <section class = "standings-section">
+            <div class = "all-standings">
+                <div class = "standings">
+                    <h2>Drivers Standings</h2>
+                    <div class = "standing-table" id = "drivers-standings">
+                    </div>
+                </div>
+                <div class = "standings">
+                    <h2>Teams Standings</h2>
+                    <div class = "standing-table" id = "teams-standings">
+                    </div>
+                </div>
+            </div>
+       </section>
+        <script type = "module" src="standings.js" async defer></script>
+    </body>
+</html>

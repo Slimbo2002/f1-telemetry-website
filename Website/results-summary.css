@@ -94,16 +94,32 @@
 .session-result {
     display: flex;
     flex-direction: column;
-    gap:10px;
     width: 100%;
     border-top: solid #202020;
+    text-align: left;
 }
 .session-row {
     display: grid;
-    grid-template-columns: 40px minmax(0, 1fr) auto;
+    grid-template-columns: 40px 100px minmax(max-content, 1fr) auto;
     column-gap: 12px;
+    font-size: 20px;
     width: 100%;
-    text-align: left;
+    padding: 5px;
+    border-bottom: 1px solid #c5c5c5;
+    border-radius: 3px;
+}
+.session-row span{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    align-self: center;
+}
+.team-logo {
+    width: 60px;
+    height: 35px;
+    object-fit: contain;
+    justify-self: center;
+    align-self: center;
 }
 .session-row span{
     font-size: 25px;
@@ -111,8 +127,6 @@
 .driver {
     min-width: 0;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .gap {
     justify-self: end;

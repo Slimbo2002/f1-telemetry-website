@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="live.css">
+    </head>
+    <body>
+        <header>
+            <div class = "logo-combo">
+                <img class="logo" src = "F1-Logo.png" alt ="logo-img">
+                <h1>Telemetry</h1>
+            </div>
+            <div class = "navbar">
+                <ul>
+                    <li><a href = "home.html">Home</a></li>
+                    <li><a href = "">Standings</a></li>
+                </ul>
+            </div>
+       </header>
+       <section class = "hero">
+            <div class = "hero-text">
+                <h1 id = "race-name"></h1>
+                <div class ="hero-sub-text">
+                    <h2 class = "track" id="race-location"></h2> 
+                    <h2 class = "date" id = "race-date"></h2>
+                </div>
+            </div>
+            <img class ="circuit-map" id = "circuit-map" height = "400" width = "500"></img>
+       </section>
+        
+        <script type = "module" src="results.js" async defer></script>
+    </body>
+</html>

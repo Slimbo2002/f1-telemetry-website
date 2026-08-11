@@ -111,9 +111,20 @@
     border-top: 2px solid #c5c5c5;
     border-radius: 10px;
 }
-.standings{
+.team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.team .team-logo{
+    align-items: center;
+}
+.standings {
     display: flex;
     flex-direction: row;
+    align-items: stretch;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
@@ -136,19 +147,49 @@
     align-items: center;
     justify-content: center;
 }
-.standing-table{
+.standing-table {
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 100%;
 }
-.standings-row{
+.standings-row-team{
     display: grid;
-    grid-template-columns:40px 1.5fr auto;
+    grid-template-columns:40px 50px 1.5fr auto;
     color: white;
     font-size: 22px;
     width: 100%;
     padding: 5px;
     border-bottom: solid 1px #c5c5c5;
+}
+.standings-row-driver {
+    display: grid;
+    grid-template-columns: 40px minmax(150px, 1fr) auto;
+    column-gap: 12px;
+    color: white;
+    font-size: 22px;
+    width: 100%;
+    padding: 5px;
+    border-bottom: solid 1px #c5c5c5;
+    text-align: left;
+}
+
+.standings-row-driver,
+.standings-row-team {
+    height: 42px;
+    box-sizing: border-box;
+}
+.driver {
+    white-space: nowrap;
+}
+.gap {
+    justify-self: end;
+}
+.team-logo{
+    max-height: 30px;
+    max-width: 30px;
+    justify-content: center;
+
 }
 .calendar-overview{
     display: flex;
