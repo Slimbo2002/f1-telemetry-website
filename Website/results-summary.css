@@ -28,9 +28,6 @@
     font-size: 25px;
     margin: 5px;
 }
-.circuit-map{
-    filter: brightness(0) invert(1);
-}
 .circuit-length{
     display: flex;
     flex-direction: column;
