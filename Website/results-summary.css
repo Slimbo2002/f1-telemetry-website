@@ -57,7 +57,7 @@
 .session-overview{
     display: flex;
     flex-wrap: wrap;
-    gap: 50px;
+    gap: 25px;
     padding: 20px;
     background-color: #202020;
     border-top: 2px solid #c5c5c5;
@@ -85,8 +85,12 @@
     padding: 20px;
     gap: 10px;
 }
-.fastest-lap{
-    color: #9F5EA5;
+.session-title .fastest-lap{
+    border-radius: 3px;
+    background-color: #8a1397;
+    padding: 5px;
+    margin: 0;
+    font-size: 25px;
 }
 .session-result {
     display: flex;
@@ -127,4 +131,12 @@
 }
 .gap {
     justify-self: end;
+}
+@media (max-width: 800px) {
+    .session-overview{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

@@ -1,1 +1,76 @@
 @import url('core.css');
+
+.results{
+    display: flex;
+    justify-content: center;
+    background-color: #202020;
+    color: white;
+    border-top: 1px solid #c5c5c5;
+}
+.race-result-table{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #141414;
+    color: white;
+    gap: clamp(20px, 4vw, 60px);
+    border: solid 1px #c5c5c5;
+    border-radius: 10px;
+    width: min(90%, 1200px);
+    margin: 30px auto;
+    box-sizing: border-box;
+}
+.results-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+    padding: 0;
+}
+.results-header h2{
+    font-size: clamp(50px, 1.4vw, 60px);
+    padding: 0;
+    margin: 0;
+}
+.results-header h3{
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+    font-size: clamp(30px, 1vw, 40px);
+}
+.results-header button{
+    padding: 0;
+    margin-top: 50px;
+}
+.results-header button{
+    width: 100px;
+    height: 50px;
+    border-color: red;
+    justify-content: center;
+    text-align: center;
+}
+.results-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: .5fr 1fr 0.75fr minmax(0, 1fr) 1fr .5fr;
+    column-gap: 10px;
+    font-size: clamp(15px, 1.4vw, 20px);
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #c5c5c5;
+    border-radius: 3px;
+    text-align: left;
+    min-height: 50px;
+    max-height: 75px;
+    font-weight: 600;
+}
+.team-logo {
+    width: 60px;
+    height: 35px;
+    object-fit: contain;
+    justify-self: center;
+    align-self: center;
+}

@@ -24,7 +24,6 @@ async function init() {
 }
 
 function formatDriverName(name) {
-
     const driver = name;
     const parts = driver.split(" ");
 
@@ -79,7 +78,7 @@ function fillSessions(sessions,session_results,driverMap,raceFastestLap) {
             }
             rows += `
                 <div class="session-row"
-                    style="background: linear-gradient(90deg, #${driverInfo.team_colour}60, transparent);>
+                    style="background: linear-gradient(90deg, #${driverInfo.team_colour}80, transparent);>
                     <span class="pos">${result.position}</span>
                     <img class = "team-logo" height="30", width ="60" src = "${getTeamLogo(teamName)}">
                     <span class="driver">${driverName}</span>
@@ -90,7 +89,6 @@ function fillSessions(sessions,session_results,driverMap,raceFastestLap) {
 
         html += `
             <div class="session-card">
-
                 <div class="session-title">
                     <h2>${session.session_name}</h2>
                     <h3>${new Date(session.date_start).toLocaleDateString("en-GB")}</h3>
@@ -99,7 +97,7 @@ function fillSessions(sessions,session_results,driverMap,raceFastestLap) {
                 <div class="session-result">
                     ${rows}
                 </div>
-                <button class="results-button"value="${session.session_key}">Results</button>
+                <button class="results-button" value="${session.session_key} ">Results</button>
             </div>
         `;
     }
@@ -113,21 +111,14 @@ function fillSessions(sessions,session_results,driverMap,raceFastestLap) {
 }
 async function getFastestLap(session_key) {
 
-    const laps = await getLaps({session_key: session_key
-
-    });
-    const validLaps = laps.filter(
-        lap => lap.lap_duration > 0
-    );
+    const laps = await getLaps({session_key: session_key});
+    const validLaps = laps.filter(lap => lap.lap_duration > 0);
 
     if (validLaps.length === 0) {
         return "N/A";
     }
 
-    const fastest = validLaps.reduce(
-        (best, lap) =>
-            lap.lap_duration < best.lap_duration? lap: best
-    );
+    const fastest = validLaps.reduce((best, lap) => lap.lap_duration < best.lap_duration? lap: best);
 
     return formatLapTime(
         fastest.lap_duration
@@ -144,14 +135,8 @@ function getFastestLapFromResults(results) {
 
         if (Array.isArray(result.duration)) {
             for (const time of result.duration) {
-                if (
-                    typeof time === "number" &&
-                    time > 0
-                ) {
-                    fastest = Math.min(
-                        fastest,
-                        time
-                    );
+                if (typeof time === "number" &&time > 0) {
+                    fastest = Math.min(fastest,time);
                 }
             }
         }

@@ -7,7 +7,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="live.css">
+        <link rel="stylesheet" href="results.css">
     </head>
     <body>
         <header>
@@ -31,6 +31,22 @@
                 </div>
             </div>
             <img class ="circuit-map" id = "circuit-map" height = "400" width = "500"></img>
+       </section>
+
+       <section class = "results">
+             <!--<ul>
+                <li><button>Race Results</button></li>
+                <li><button>Strategy</button></li>
+            </ul>-->
+            <div class = "race-result-table">
+                <div class = "results-header">
+                    <h2 class = "session "id = "session"></h2>
+                    <h3 id = "laps"></h3>
+                    <button class = "replay-button" id = "race-replay" value = "">Replay</button>
+                </div>
+                <div class = "results-content" id = "results-content">
+                </div>
+            </div>
        </section>
         
         <script type = "module" src="results.js" async defer></script>

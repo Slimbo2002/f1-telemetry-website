@@ -5,17 +5,13 @@ const teams_table = document.querySelector("#teams-standings")
 
 async function init(){
     const [drivers_standings, constructors_standings, drivers] = await Promise.all([
-        getDriversStandings({meeting_key: "latest"}),
-        getConstructorsStandings({meeting_key: "latest"}),
+        getDriversStandings({session_key: "latest"}),
+        getConstructorsStandings({session_key: "latest"}),
         getDriver({session_key: "latest"})
     ])
 
-    const driverMap = new Map(
-        drivers.map(driver => [driver.driver_number, driver])
-    );
-    const teamColourMap = new Map(
-        drivers.map(driver => [driver.team_name, driver.team_colour])
-    );
+    const driverMap = new Map(drivers.map(driver => [driver.driver_number, driver]));
+    const teamColourMap = new Map(drivers.map(driver => [driver.team_name, driver.team_colour]));
 
     fillDriverTable(drivers_standings, driverMap)
     fillTeamsTable(constructors_standings, teamColourMap);
@@ -25,6 +21,11 @@ function fillDriverTable(standings, driverMap){
     let leader = null;
     standings.forEach(driver => {
         let driverInfo = driverMap.get(driver.driver_number);
+
+        if (!driverInfo) {
+            console.warn("No driver information found for:", driver);
+            return;
+        }
         let driverName = driverInfo.full_name
         let teamName = driverInfo.team_name;
         let gap = leader === null ? "-" : "+ " + (leader.points_current - driver.points_current);

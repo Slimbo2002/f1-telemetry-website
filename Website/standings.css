@@ -11,7 +11,7 @@
     border-top: solid 1px #c5c5c5;
 }
 .standings-section h1 {
-    font-size: 50px;
+    font-size: clamp(32px, 4vw, 50px);
     margin-bottom: 30px;
 }
 .hero{
@@ -32,39 +32,44 @@
     margin: 0;
     padding: 0;
 }
-.all-standings{
+.all-standings {
     display: flex;
     flex-direction: row;
     justify-content: center;
     background-color: #141414;
     color: white;
-    padding : 20px;
-    gap: 60px;
+    padding: 20px;
+    gap: clamp(20px, 4vw, 60px);
     border: solid 1px #c5c5c5;
     border-radius: 10px;
-    width: 50%;
+    width: min(90%, 1200px);
     margin: 0 auto;
+    box-sizing: border-box;
 }
-.standings{
+.standings {
     display: flex;
     flex-direction: column;
     text-align: center;
-    max-width: 50%;
+    flex: 1;
+    min-width: 0;
 }
-.standings h2{
-    font-size: 36px;
+.standings h2 {
+    font-size: clamp(24px, 3vw, 36px);
 }
 .standing-row {
     position: relative;
     display: grid;
-    grid-template-columns: 40px 100px minmax(150px, 1fr) auto 60px;
-    column-gap: 12px;
-    font-size: 20px;
+    grid-template-columns: 35px 70px minmax(0, 1fr) auto 55px;
+    column-gap: 10px;
+    font-size: clamp(15px, 1.4vw, 20px);
     width: 100%;
     padding: 5px;
+    box-sizing: border-box;
     border-bottom: 1px solid #c5c5c5;
     border-radius: 3px;
     text-align: left;
+    min-height: 50px;
+    max-height: 75px;
 }
 .standing-row h3 {
     margin: 0;
@@ -84,4 +89,27 @@
     flex-direction: row;
     gap: 20px;
 
+}
+@media (max-width: 800px) {
+    .all-standings {
+        flex-direction: column;
+        width: 100%;
+        gap: 40px;
+        padding: 15px;
+    }
+
+    .standings {
+        width: 100%;
+    }
+
+    .standing-row {
+        grid-template-columns: 20px 35px minmax(0, 1fr) auto 45px;
+        column-gap: 6px;
+        font-size: 15px;
+    }
+
+    .standing-team-logo {
+        width: 50px;
+        height: 30px;
+    }
 }

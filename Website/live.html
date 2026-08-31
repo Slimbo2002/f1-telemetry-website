@@ -18,7 +18,7 @@
             <div class = "navbar">
                 <ul>
                     <li><a href = "home.html">Home</a></li>
-                    <li><a href = "">Standings</a></li>
+                    <li><a href = "Standings.html">Standings</a></li>
                 </ul>
             </div>
        </header>
@@ -29,9 +29,87 @@
                     <h2 class = "track" id="race-location"></h2> 
                     <h2 class = "date" id = "race-date"></h2>
                 </div>
+                <h2 class = "live-text">LIVE</h2>
+            </div>
+       </section>
+       <section class = "live-feed">
+            <div class = "timing-tower">
+                <div class = "timing-header">
+                    <h2 id = "session-name"></h2>
+                    <h2 id = lap-counter>Lap: -</h2>
+                </div>
+                <div class = "tower" id = "timing-tower">
+                    <div class = "session-row session-row-header">
+                        <span class = "pos">Pos</span>
+                        <span class = "driver">Driver</span>
+                        <span class = "team">Team</span>
+                        <span class = "interval">Interval</span>
+                        <span class = "tyre">Tyre</span>
+                        <span class = "stops">Stops</span>
+                    </div>
+                </div>
+            </div>
+            <div id="mini-map">
+                <svg id="track-map" viewBox="0 0 1250 1250">
+                    <path id="track"></path>
+                    <g id="drivers"></g>
+                </svg>
+            </div>
+            <div class = "driver-info">
+                <div class = "selected-driver">
+                    <div class = "credentials">
+                        <img class = "driver-flag" src = "">
+                        <div class = "driver-team">
+                            <h2>Antonelli</h2>
+                            <h3>Aston-Martin</h3>
+                        </div>
+                    </div>
+                    <div class = "driver-data">
+                        <img class = "driver-headshot" src = "https://www.formula1.com/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png.transform/9col/image.png">
+                        <div class = "live-data">
+                            <div class = "info">
+                                <h2>Position</h2>
+                                <h3>1</h3>
+                            </div>
+                            <div class = "info">
+                                <h2>Last Lap</h2>
+                                <h3>1:24.322</h3>    
+                            </div>
+                            <div class = "info">
+                                <h2>Best Lap</h2>
+                                <h3>1:23.899</h3>
+                            </div>
+                            <div class = "info">
+                                <h2>Tyre</h2>
+                                <div class = "tyres">
+                                    <h3 class = "current-compound current-compound-medium" id="current-compound">M</h3>
+                                    <h3 id = "tyre-life">32 Laps</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "gap">
+                    <h2>Gap to Next</h2>
+                    <div class ="row">
+                        <span class ="pos">1</span>
+                        <img id = "team-logo" src ="/TeamLogos/ferrari.png" width ="50" height = "60">
+                        <span class = "driver">LEC</span>
+                        <span class ="gap-value">+0.334</span>
+                    </div>
+                </div>
+                <div class = "gap">
+                    <h2>Gap to Last</h2>
+                    <div class ="row">
+                        <span class ="pos">3</span>
+                        <img id = "team-logo" src ="/TeamLogos/ferrari.png" width ="50" height = "60">
+                        <span class = "driver">HAM</span>
+                        <span class ="gap-value">-1.432</span>
+                    </div>
+                </div>
             </div>
        </section>
         
-        <script src="" async defer></script>
+        <script type = "module" src="live.js" async defer></script>
     </body>
 </html>

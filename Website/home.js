@@ -21,17 +21,19 @@ let cachedCalendarData = [];
 
 
 async function init() {
-    const [latestSession, latestMeeting, latestRaceKey] = await Promise.all([
-        getSession({ session_key: "latest" }), 
+    const [latestMeeting, latestRaceKey] = await Promise.all([
         getMeeting({meeting_key: "latest"}), 
         getLatestRaceSessionKey("2026"), cacheYears()
     ]);
+    const latestRaceSession = await getSession({ session_key: latestRaceKey });
+    const meeting_key = latestRaceSession[0].meeting_key;
+    const latestRaceMeeting = await getMeeting({meeting_key: meeting_key})
 
     await Promise.all([
         cacheCalendar(), 
         populateDriversStandings(latestRaceKey),
         populateConstructorsStandings(latestRaceKey), 
-        populateLastWinner(latestRaceKey, latestMeeting[0].meeting_name)
+        populateLastWinner(latestRaceKey, latestRaceMeeting[0].meeting_name)
     ]);
 
     zeroCalendar();
