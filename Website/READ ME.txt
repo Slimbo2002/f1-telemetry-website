@@ -1,0 +1,7 @@
+Installation Instructions:
+Step 1: Open the project in VSCode
+Step 2: Install the extension Live Server by Ritwick Defy
+Step 3: Restart VSCode
+Step 4: In the bottom right there should now be a Go Live button, Click it to start a local server
+Step 5: If it worked, it should open in your browser with a list of scripts
+Step 6: Load Home.html to explore the site
