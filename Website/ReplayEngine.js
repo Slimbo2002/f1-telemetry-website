@@ -86,7 +86,6 @@ export class ReplayEngine {
     }
 
     pause() {
-
         this.isPlaying = false;
     }
 
